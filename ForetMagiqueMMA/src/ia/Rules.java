@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Created by alex on 05/11/2016.
- */
 public class Rules {
 
     private int label;

@@ -11,15 +11,12 @@ import java.util.*;
 
 import static java.lang.Thread.sleep;
 
-/**
- * Created by alex on 05/11/2016.
- */
 public class Agent{
 
     private Hero hero;
     private static Agent agent;
     private List<Rules> rules;
-    private int level;
+    private int niveau;
     private Boolean windVariable[][];
     private Boolean smellVariable[][];
     private Boolean holeVariable[][];
@@ -36,7 +33,7 @@ public class Agent{
 
     private Agent() {
         instanciateMapDir();
-        level = 1;
+        niveau = 1;
         hero = Hero.getInstance();
         dir = "right";
         rules = new ArrayList<>();
@@ -116,7 +113,7 @@ public class Agent{
     }
 
     public void findMove(){
-        int local = level;
+        int local = niveau;
         if (!dirExist(dir)) {
             changeDir();
         }
@@ -152,11 +149,11 @@ public class Agent{
     }
 
     public void levelUp(){
-        hero.setPoint(hero.getPoint()+(10*(level+2)));
-        level ++;
+        hero.setPoint(hero.getPoint()+(10*(niveau+2)));
+        niveau ++;
         hero.setPosX(0);
         hero.setPosY(0);
-        hero.resetKnowledge(level);
+        hero.resetKnowledge(niveau);
         newLevel();
         Window.getInstance().newForest();
         Window.getInstance().repaint();
@@ -164,7 +161,7 @@ public class Agent{
 
     public void death(){
         System.out.println("death");
-        hero.setPoint(hero.getPoint()-(10*(level+2)));
+        hero.setPoint(hero.getPoint()-(10*(niveau+2)));
         hero.setLife(hero.getLife()+1);
         hero.setPosX(0);
         hero.setPosY(0);
@@ -202,7 +199,7 @@ public class Agent{
     }
 
     public void newLevel() {
-        int nbCase = level + 2;
+        int nbCase = niveau + 2;
         windVariable = new Boolean[nbCase][nbCase];
         smellVariable = new Boolean[nbCase][nbCase];
         holeVariable = new Boolean[nbCase][nbCase];
@@ -230,7 +227,7 @@ public class Agent{
         //Création des monstres:  x monstre pour x niveau
         
             //génération aléatoire des coordonnées d'un monstre
-        for (int i = 0; i < level; ++i) {	
+        for (int i = 0; i < niveau; ++i) {	
     		while(isMonsterCanStayHere(lMonster,cMonster,monsterVariable)==false
     				|| (lMonster-1==hero.getPosX() && cMonster==hero.getPosY())
     				|| (cMonster-1==hero.getPosY() && lMonster==hero.getPosX())
@@ -244,7 +241,7 @@ public class Agent{
     		
             }
            
-        for (int i = 0; i < level; ++i) {	
+        for (int i = 0; i < niveau; ++i) {	
     		while(isTrouCanStayHere(lTrou,cTrou,monsterVariable,holeVariable)==false
     				|| (lTrou-1==hero.getPosX() && cTrou==hero.getPosY())
     				|| (lTrou==hero.getPosX() && cTrou-1==hero.getPosY())
@@ -263,7 +260,7 @@ public class Agent{
 
         public boolean isMonsterCanStayHere(int i, int y, Boolean[][] object){
             //Interdit d'etre sur le portaile ou à coté (en haut/bas/gauche/droite)
-        	int nbCase = level + 2; 
+        	int nbCase = niveau + 2; 
         	if (
                      getlPortail() == getlMonster() && getcPortail() == getcMonster()
                     || getlPortail()+1 == getlMonster() && getcPortail() == getcMonster()
@@ -291,7 +288,7 @@ public class Agent{
         
         public boolean isTrouCanStayHere(int i, int y, Boolean[][] object, Boolean[][] second){
             //Interdit d'etre sur le portaile ou à coté (en haut/bas/gauche/droite)
-        	int nbCase = level + 2; 
+        	int nbCase = niveau + 2; 
         	if (
                      getlPortail() == getlTrou() && getcPortail() == getcTrou()
                     || getlPortail()+1 == getlTrou() && getcPortail() == getcTrou()
@@ -340,23 +337,23 @@ public class Agent{
         if(0<i){
             indice[i-1][y] = true;
         }
-        if(level+2>i+1){
+        if(niveau+2>i+1){
             indice[i+1][y] = true;
         }
         if(0<y){
             indice[i][y-1] = true;
         }
-        if(level+2>y+1){
+        if(niveau+2>y+1){
             indice[i][y+1] = true;
         }
     }
 
     public int getLevel() {
-        return level;
+        return niveau;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setLevel(int niveau) {
+        this.niveau = niveau;
     }
 
     public Boolean[][] getMonsterVariable() {
@@ -460,7 +457,7 @@ public class Agent{
     public boolean dirExist(String dir) {
         switch (dir){
             case "right":
-                if(hero.getPosY()+1>level+1){
+                if(hero.getPosY()+1>niveau+1){
                     return false;
                 }
                 break;
@@ -475,7 +472,7 @@ public class Agent{
                 }
                 break;
             case "down":
-                if(hero.getPosX()+1>level+1){
+                if(hero.getPosX()+1>niveau+1){
                     return false;
                 }
                 break;

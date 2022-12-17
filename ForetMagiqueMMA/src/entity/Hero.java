@@ -4,9 +4,6 @@ import utils.Constants;
 
 import java.util.stream.Stream;
 
-/**
- * Created by alex on 05/11/2016.
- */
 public class Hero {
 
     private int posX;
@@ -36,11 +33,11 @@ public class Hero {
 
     }
 
-    public void resetKnowledge(int level){
-        knowledge = new int[level+2][level+2];
-        visited = new Boolean[level+2][level+2];
-        for(int i = 0;i<level+2;i++) {
-            for (int y = 0; y < level + 2; y++) {
+    public void resetKnowledge(int niveau){
+        knowledge = new int[niveau+2][niveau+2];
+        visited = new Boolean[niveau+2][niveau+2];
+        for(int i = 0;i<niveau+2;i++) {
+            for (int y = 0; y < niveau + 2; y++) {
                 knowledge[i][y] = Constants.UNKNOW;
                 visited[i][y] = new Boolean(false);
             }

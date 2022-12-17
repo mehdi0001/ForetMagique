@@ -9,9 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by alex on 05/11/2016.
- */
+
 public class Window extends JFrame {
 
     private static Window window;
@@ -26,7 +24,7 @@ public class Window extends JFrame {
     }
 
     private Window(){
-        setTitle("Magic Forest");
+        setTitle("Foret Magique");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Container container = getContentPane();
         setSize(Constants.WIDTH,Constants.HEIGHT);
@@ -35,31 +33,31 @@ public class Window extends JFrame {
 
 
         JPanel storyBoard = new JPanel();
-        storyBoard.setBackground(Color.GRAY);
+        storyBoard.setBackground(Color.red);
         storyBoard.setSize(Constants.WIDTH,100);
         //action button
-        JButton move = new JButton("move");
-        move.addActionListener(new ActionListener() {
+        JButton bouger = new JButton("bouger");
+        bouger.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("move");
+                System.out.println("bouger");
                 Agent.getInstance().findMove();
             }
         });
-        storyBoard.add(move,BorderLayout.WEST);
-        JButton newLevel = new JButton("generate level");
+        storyBoard.add(bouger,BorderLayout.WEST);
+        JButton newLevel = new JButton("generation niveau");
         newLevel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("generate level");
+                System.out.println("generation niveau");
                 Agent.getInstance().newLevel();
             }
         });
         storyBoard.add(newLevel,BorderLayout.WEST);
         //Story label
-        storyField = new JLabel("bienvenue dans la fôret !!! vous avez utilisé : "
+        storyField = new JLabel("Foret magique performance : "
                 + Hero.getInstance().getLife() + " vie , "
-                + Hero.getInstance().getShootUsed() + " tir , et gagné "
+                + Hero.getInstance().getShootUsed() + " tir , gain "
                 + Hero.getInstance().getPoint() + " point");
         storyBoard.add(storyField);
 
@@ -71,9 +69,9 @@ public class Window extends JFrame {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        storyField.setText("bienvenue dans la fôret !!! vous avez utilisé : "
+        storyField.setText("Foret magique performance : "
                 + Hero.getInstance().getLife() + " vie , "
-                + Hero.getInstance().getShootUsed() + " tir , et gagné "
+                + Hero.getInstance().getShootUsed() + " tir , gain "
                 + Hero.getInstance().getPoint() + " point");
 
     }
