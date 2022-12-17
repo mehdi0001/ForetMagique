@@ -46,8 +46,8 @@ public class Forest extends JPanel implements ActionListener {
                 //hero
                 if(agent.getHero().getPosY()==i && agent.getHero().getPosX()==y){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/saitama.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("/Users/pro/git/ForetMagique/ForetMagiqueMMA/ressources/Hero.png");
+                    img = img.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     //label.setIcon(icon);
                     label.setText("hero : " + counter++);
@@ -56,7 +56,8 @@ public class Forest extends JPanel implements ActionListener {
                 //monster
                 if(agent.getMonsterVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/monster.gif");
+                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/monster.jpg");
+                    img = img.getScaledInstance(90, 90,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panel.add(label);
@@ -64,8 +65,8 @@ public class Forest extends JPanel implements ActionListener {
                 //shit
                 if(agent.getSmellVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/shit.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("/Users/pro/git/ForetMagique/ForetMagiqueMMA/ressources/shit.jpeg");
+                    img = img.getScaledInstance(40, 40,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panel.add(label);
@@ -73,8 +74,8 @@ public class Forest extends JPanel implements ActionListener {
                 //hole
                 if(agent.getHoleVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/hole.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/hole.jpg");
+                    img = img.getScaledInstance(50, 50,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panel.add(label);
@@ -82,8 +83,8 @@ public class Forest extends JPanel implements ActionListener {
                 //wind
                 if(agent.getWindVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/wind.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/vent.jpg");
+                    img = img.getScaledInstance(45, 45,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panel.add(label);
@@ -91,8 +92,8 @@ public class Forest extends JPanel implements ActionListener {
                 //portal
                 if(agent.getOutVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/portal.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/portal.jpeg");
+                    img = img.getScaledInstance(60, 36,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panel.add(label);
@@ -127,8 +128,8 @@ public class Forest extends JPanel implements ActionListener {
                 //hero
                 if(agent.getHero().getPosX()==i && agent.getHero().getPosY()==y){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/saitama.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("/Users/pro/git/ForetMagique/ForetMagiqueMMA/ressources/Hero.png");
+                    img = img.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     //label.setText("hero : " + counter++);
@@ -137,7 +138,8 @@ public class Forest extends JPanel implements ActionListener {
                 //monster
                 if(agent.getMonsterVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/monster.gif");
+                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/monster.jpg");
+                    img = img.getScaledInstance(90, 90,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panels[i][y].add(label);
@@ -145,8 +147,8 @@ public class Forest extends JPanel implements ActionListener {
                 //shit
                 if(agent.getSmellVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/shit.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("/Users/pro/git/ForetMagique/ForetMagiqueMMA/ressources/shit.jpeg");
+                    img = img.getScaledInstance(40, 40,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panels[i][y].add(label);
@@ -154,8 +156,8 @@ public class Forest extends JPanel implements ActionListener {
                 //hole
                 if(agent.getHoleVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/hole.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/hole.jpg");
+                    img = img.getScaledInstance(50, 50,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panels[i][y].add(label);
@@ -163,8 +165,8 @@ public class Forest extends JPanel implements ActionListener {
                 //wind
                 if(agent.getWindVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/wind.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/vent.jpg");
+                    img = img.getScaledInstance(45, 45,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panels[i][y].add(label);
@@ -172,8 +174,8 @@ public class Forest extends JPanel implements ActionListener {
                 //portal
                 if(agent.getOutVariable()[i][y]){
                     JLabel label = new JLabel();
-                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/portal.png");
-                    img = img.getScaledInstance(36, 36,  java.awt.Image.SCALE_SMOOTH);
+                    Image img = Toolkit.getDefaultToolkit().getImage("./ressources/portal.jpeg");
+                    img = img.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH);
                     ImageIcon icon = new ImageIcon(img);
                     label.setIcon(icon);
                     panels[i][y].add(label);
