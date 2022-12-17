@@ -11,12 +11,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by alex on 05/11/2016.
- */
+
 public class Forest extends JPanel implements ActionListener {
 
-    private int level;
+    private int niveau;
     Agent agent;
     int nbCase;
     int counter = 0;
@@ -24,8 +22,8 @@ public class Forest extends JPanel implements ActionListener {
 
     public Forest(){
         agent = Agent.getInstance();
-        level = agent.getLevel();
-        nbCase = level+2;
+        niveau = agent.getLevel();
+        nbCase = niveau+2;
         setBackground(Color.WHITE);
         setLayout(new GridLayout(nbCase,nbCase));
         panels = new JPanel[nbCase][nbCase];
@@ -41,7 +39,7 @@ public class Forest extends JPanel implements ActionListener {
             for(int y=0;y<nbCase;y++) {
                 JPanel panel = panels[i][y];
                 //panel.removeAll();
-                panel.setBackground(Color.ORANGE);
+                panel.setBackground(Color.LIGHT_GRAY);
                 panel.setSize(Constants.WIDTH/(nbCase),Constants.HEIGHT/(nbCase));
                 panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 

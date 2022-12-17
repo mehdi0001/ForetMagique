@@ -1,8 +1,5 @@
 package ia;
 
-/**
- * Created by alex on 06/11/2016.
- */
 public class Variable {
 
     private String name;

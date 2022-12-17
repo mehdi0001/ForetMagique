@@ -4,29 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by alex on 05/11/2016.
- */
+
 public class Carte {
 
     private Case[][] cases;
-    private int level;
+    private int niveau;
 
     public Carte(){
-        level = 1;
+        niveau = 1;
     }
 
-    public void generateLevel(){
-        cases = new Case[level+2][level+2];
+    public void generateniveau(){
+        cases = new Case[niveau+2][niveau+2];
         //init Case
-        for(int i = 0;i<level+2;i++) {
-            for (int y = 0; y < level + 2; y++) {
+        for(int i = 0;i<niveau+2;i++) {
+            for (int y = 0; y < niveau + 2; y++) {
                 cases[i][y] = new Case();
             }
         }
         //setEdge
-        for(int i = 0;i<level+2;i++) {
-            for (int y = 0; y < level + 2; y++) {
+        for(int i = 0;i<niveau+2;i++) {
+            for (int y = 0; y < niveau + 2; y++) {
                 List<Edge> listEdge = new ArrayList<>();
                 //haut
                 if(0<i){
@@ -34,7 +32,7 @@ public class Carte {
                     listEdge.add(edge);
                 }
                 //bas
-                if(level+2>i+1){
+                if(niveau+2>i+1){
                     Edge edge = new Edge(cases[i][y],cases[i+1][y],"bas");
                     listEdge.add(edge);
                 }
@@ -44,7 +42,7 @@ public class Carte {
                     listEdge.add(edge);
                 }
                 //droite
-                if(level+2>y+1){
+                if(niveau+2>y+1){
                     Edge edge = new Edge(cases[i][y],cases[i][y+1],"droite");
                     listEdge.add(edge);
                 }
@@ -52,8 +50,8 @@ public class Carte {
             }
         }
         //set Objet;
-        for(int i = 0;i<level+2;i++){
-            for(int y = 0;y<level+2;y++){
+        for(int i = 0;i<niveau+2;i++){
+            for(int y = 0;y<niveau+2;y++){
                 int randomNum = 0 + (int)(Math.random() * 100);
                 switch (randomNum%10){
                     //hole
@@ -81,13 +79,13 @@ public class Carte {
         if(0<i){
             cases[i-1][y].setWind(true);
         }
-        if(level+2>i+1){
+        if(niveau+2>i+1){
             cases[i+1][y].setWind(true);
         }
         if(0<y){
             cases[i][y-1].setWind(true);
         }
-        if(level+2>y+1){
+        if(niveau+2>y+1){
             cases[i][y+1].setWind(true);
         }
     }
@@ -102,13 +100,13 @@ public class Carte {
         if(0<i){
             cases[i-1][y].setShit(true);
         }
-        if(level+2>i+1){
+        if(niveau+2>i+1){
             cases[i+1][y].setShit(true);
         }
         if(0<y){
             cases[i][y-1].setShit(true);
         }
-        if(level+2>y+1){
+        if(niveau+2>y+1){
             cases[i][y+1].setShit(true);
         }
     }
@@ -122,10 +120,10 @@ public class Carte {
     }
 
     public int getLevel() {
-        return level;
+        return niveau;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setLevel(int niveau) {
+        this.niveau = niveau;
     }
 }
