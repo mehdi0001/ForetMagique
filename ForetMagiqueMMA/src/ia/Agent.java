@@ -216,17 +216,19 @@ public class Agent{
             }
         }
 
-        //add portail
+        //Ajouter portail
         lPortail =  new Random().nextInt(nbCase);
         cPortail = new Random().nextInt(nbCase);
         while(lPortail==hero.getPosX() && cPortail==hero.getPosY()) {
 	        lPortail =  new Random().nextInt(nbCase);
 	        cPortail = new Random().nextInt(nbCase);
         }
-        addPortal(lPortail,cPortail);
-        //Création des monstres:  x monstre pour x niveau
+        addPortail(lPortail,cPortail);
+        //Creation des monstres:  x monstre pour x niveau
         
-            //génération aléatoire des coordonnées d'un monstre
+            //les regles de generation sont presentes dans isMonsterCanStayHere pour les monstres
+        	//les regles de generation sont presentes dans isTrouCanStayHere pour les trous
+            // les monstres ne doivent pas se generer ni sur le heros ni a cote
         for (int i = 0; i < niveau; ++i) {	
     		while(isMonsterCanStayHere(lMonster,cMonster,monsterVariable)==false
     				|| (lMonster-1==hero.getPosX() && cMonster==hero.getPosY())
@@ -324,10 +326,11 @@ public class Agent{
         	if (y!=nbCase-1 && second[i][y+1] == true) {
         		return false;
         	}
-             return true;
+           
+            return true;
         }  
         
-    private void addPortal(int i, int y) {
+    private void addPortail(int i, int y) {
 
         outVariable[i][y] = true;
     }
