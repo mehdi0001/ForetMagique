@@ -1,6 +1,6 @@
 package gui;
 
-import entity.Carte;
+
 import entity.Case;
 import entity.Hero;
 import ia.Agent;

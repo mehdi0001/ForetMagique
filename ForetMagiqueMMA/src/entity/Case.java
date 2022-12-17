@@ -8,46 +8,46 @@ import java.util.Map;
 
 public class Case {
 
-    private boolean wind;
-    private boolean hole;
-    private boolean shit;
+    private boolean vent;
+    private boolean trou;
+    private boolean puanteur;
     private boolean monster;
-    private boolean portal;
+    private boolean portail;
 
     private List<Edge> cases;
     private List<Variable> variables;
 
     public Case() {
 
-        Variable hole = new Variable("Hole");
+        Variable trou = new Variable("trou");
         Variable monster = new Variable("Monster");
         variables = new ArrayList<>();
-        variables.add(hole);
+        variables.add(trou);
         variables.add(monster);
     }
 
-    public boolean isWind() {
-        return wind;
+    public boolean estVent() {
+        return vent;
     }
 
-    public void setWind(boolean wind) {
-        this.wind = wind;
+    public void setVent(boolean vent) {
+        this.vent = vent;
     }
 
-    public boolean isHole() {
-        return hole;
+    public boolean estTrou() {
+        return trou;
     }
 
-    public void setHole(boolean hole) {
-        this.hole = hole;
+    public void setTrou(boolean trou) {
+        this.trou = trou;
     }
 
-    public boolean isShit() {
-        return shit;
+    public boolean isPuanteur() {
+        return puanteur;
     }
 
-    public void setShit(boolean shit) {
-        this.shit = shit;
+    public void setPuanteur(boolean puanteur) {
+        this.puanteur = puanteur;
     }
 
     public boolean isMonster() {
@@ -58,12 +58,12 @@ public class Case {
         this.monster = monster;
     }
 
-    public boolean isPortal() {
-        return portal;
+    public boolean estPortail() {
+        return portail;
     }
 
-    public void setPortal(boolean portal) {
-        this.portal = portal;
+    public void setPortail(boolean portail) {
+        this.portail = portail;
     }
 
     public List<Edge> getCases() {
