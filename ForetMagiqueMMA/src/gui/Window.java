@@ -56,7 +56,7 @@ public class Window extends JFrame {
         storyBoard.add(newLevel,BorderLayout.WEST);
         //Story label
         storyField = new JLabel("Foret magique performance : "
-                + Hero.getInstance().getLife() + " vie , "
+                + Hero.getInstance().getvie() + " vie , "
                 + Hero.getInstance().getShootUsed() + " tir , gain "
                 + Hero.getInstance().getPoint() + " point");
         storyBoard.add(storyField);
@@ -70,7 +70,7 @@ public class Window extends JFrame {
     public void paint(Graphics g) {
         super.paint(g);
         storyField.setText("Foret magique performance : "
-                + Hero.getInstance().getLife() + " vie , "
+                + Hero.getInstance().getvie() + " vie , "
                 + Hero.getInstance().getShootUsed() + " tir , gain "
                 + Hero.getInstance().getPoint() + " point");
 

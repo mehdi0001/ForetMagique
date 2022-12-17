@@ -17,9 +17,9 @@ public class Agent{
     private static Agent agent;
     private List<Rules> rules;
     private int niveau;
-    private Boolean windVariable[][];
+    private Boolean VentVariable[][];
     private Boolean smellVariable[][];
-    private Boolean holeVariable[][];
+    private Boolean TrouVariable[][];
     private Boolean monsterVariable[][];
     private Boolean outVariable[][];
     private String dir;
@@ -53,7 +53,7 @@ public class Agent{
         //if out actions levelUp
         r = new Rules();
         r.setLabel(3);
-        r.get_true().add("HoleVariable");
+        r.get_true().add("TrouVariable");
         r.getActions().add("death");
         rules.add(r);
         //if visited and dir available change dir
@@ -67,7 +67,7 @@ public class Agent{
         r = new Rules();
         r.setLabel(5);
         r.get_false().add("SmellVariable");
-        r.get_false().add("WindVariable");
+        r.get_false().add("VentVariable");
         r.get_falseDir().add("Visited");
         r.getActions().add("move");
         rules.add(r);
@@ -75,7 +75,7 @@ public class Agent{
         r = new Rules();
         r.setLabel(6);
         r.get_false().add("SmellVariable");
-        r.get_false().add("WindVariable");
+        r.get_false().add("VentVariable");
         r.get_trueDir().add("Visited");
         r.getActions().add("move");
         rules.add(r);
@@ -83,7 +83,7 @@ public class Agent{
         r = new Rules();
         r.setLabel(7);
         r.get_true().add("SmellVariable");
-        r.get_false().add("WindVariable");
+        r.get_false().add("VentVariable");
         r.get_falseDir().add("Visited");
         r.getActions().add("shoot");
         r.getActions().add("move");
@@ -91,14 +91,14 @@ public class Agent{
         //if vent et pas visiter move
         r = new Rules();
         r.setLabel(8);
-        r.get_true().add("WindVariable");
+        r.get_true().add("VentVariable");
         r.get_falseDir().add("Visited");
         r.getActions().add("move");
         //if vent et visiter move
         rules.add(r);
         r = new Rules();
         r.setLabel(9);
-        r.get_true().add("WindVariable");
+        r.get_true().add("VentVariable");
         r.getActions().add("move");
         rules.add(r);
 
@@ -162,7 +162,7 @@ public class Agent{
     public void death(){
         System.out.println("death");
         hero.setPoint(hero.getPoint()-(10*(niveau+2)));
-        hero.setLife(hero.getLife()+1);
+        hero.setvie(hero.getvie()+1);
         hero.setPosX(0);
         hero.setPosY(0);
     }
@@ -188,9 +188,9 @@ public class Agent{
     }
 
     public void addKnow(){
-        hero.getVisited()[hero.getPosX()][hero.getPosY()] = true;
+        hero.getvisite()[hero.getPosX()][hero.getPosY()] = true;
 
-        if(holeVariable[hero.getPosX()][hero.getPosY()]){
+        if(TrouVariable[hero.getPosX()][hero.getPosY()]){
             hero.getKnowledge()[hero.getPosX()][hero.getPosY()] = Constants.HOLE;
         }
         if(monsterVariable[hero.getPosX()][hero.getPosY()]){
@@ -200,17 +200,17 @@ public class Agent{
 
     public void newLevel() {
         int nbCase = niveau + 2;
-        windVariable = new Boolean[nbCase][nbCase];
+        VentVariable = new Boolean[nbCase][nbCase];
         smellVariable = new Boolean[nbCase][nbCase];
-        holeVariable = new Boolean[nbCase][nbCase];
+        TrouVariable = new Boolean[nbCase][nbCase];
         monsterVariable = new Boolean[nbCase][nbCase];
         outVariable = new Boolean[nbCase][nbCase];
 
         for (int i = 0; i < nbCase; i++) {
             for (int y = 0; y < nbCase; y++) {
-                windVariable[i][y] = new Boolean(false);
+                VentVariable[i][y] = new Boolean(false);
                 smellVariable[i][y] = new Boolean(false);
-                holeVariable[i][y] = new Boolean(false);
+                TrouVariable[i][y] = new Boolean(false);
                 monsterVariable[i][y] = new Boolean(false);
                 outVariable[i][y] = new Boolean(false);
             }
@@ -242,7 +242,7 @@ public class Agent{
             }
            
         for (int i = 0; i < niveau; ++i) {	
-    		while(isTrouCanStayHere(lTrou,cTrou,monsterVariable,holeVariable)==false
+    		while(isTrouCanStayHere(lTrou,cTrou,monsterVariable,TrouVariable)==false
     				|| (lTrou-1==hero.getPosX() && cTrou==hero.getPosY())
     				|| (lTrou==hero.getPosX() && cTrou-1==hero.getPosY())
     				|| (lTrou==hero.getPosX() && cTrou==hero.getPosY())) {
@@ -251,7 +251,7 @@ public class Agent{
 	        	   
     		}
     		
-    		addObject(lTrou, cTrou,holeVariable,windVariable);
+    		addObject(lTrou, cTrou,TrouVariable,VentVariable);
     		
             }
 
@@ -364,12 +364,12 @@ public class Agent{
         this.monsterVariable = monsterVariable;
     }
 
-    public Boolean[][] getWindVariable() {
-        return windVariable;
+    public Boolean[][] getVentVariable() {
+        return VentVariable;
     }
 
-    public void setWindVariable(Boolean[][] windVariable) {
-        this.windVariable = windVariable;
+    public void setVentVariable(Boolean[][] VentVariable) {
+        this.VentVariable = VentVariable;
     }
 
     public Boolean[][] getSmellVariable() {
@@ -380,12 +380,12 @@ public class Agent{
         this.smellVariable = smellVariable;
     }
 
-    public Boolean[][] getHoleVariable() {
-        return holeVariable;
+    public Boolean[][] getTrouVariable() {
+        return TrouVariable;
     }
 
-    public void setHoleVariable(Boolean[][] holeVariable) {
-        this.holeVariable = holeVariable;
+    public void setTrouVariable(Boolean[][] TrouVariable) {
+        this.TrouVariable = TrouVariable;
     }
 
     public Boolean[][] getOutVariable() {
@@ -401,7 +401,7 @@ public class Agent{
     }
 
     public Boolean[][] getVisited() {
-        return hero.getVisited();
+        return hero.getvisite();
     }
 
     public void setHero(Hero hero) {

@@ -8,11 +8,11 @@ public class Hero {
 
     private int posX;
     private int posY;
-    private Case actualCase;
+    private Case CaseActuelle;
     private int knowledge[][];
-    private Boolean visited[][];
+    private Boolean visite[][];
     private static Hero hero;
-    private int life;
+    private int vie;
     private int shootUsed;
     private int point;
 
@@ -24,7 +24,7 @@ public class Hero {
     }
 
     private Hero() {
-        life = 0;
+        vie = 0;
         shootUsed = 0;
         point =0;
         this.posY = 0;
@@ -35,11 +35,11 @@ public class Hero {
 
     public void resetKnowledge(int niveau){
         knowledge = new int[niveau+2][niveau+2];
-        visited = new Boolean[niveau+2][niveau+2];
+        visite = new Boolean[niveau+2][niveau+2];
         for(int i = 0;i<niveau+2;i++) {
             for (int y = 0; y < niveau + 2; y++) {
                 knowledge[i][y] = Constants.UNKNOW;
-                visited[i][y] = new Boolean(false);
+                visite[i][y] = new Boolean(false);
             }
         }
     }
@@ -65,12 +65,12 @@ public class Hero {
         this.posX = posX;
     }
 
-    public Case getActualCase() {
-        return actualCase;
+    public Case getCaseActuelle() {
+        return CaseActuelle;
     }
 
-    public void setActualCase(Case actualCase) {
-        this.actualCase = actualCase;
+    public void setCaseActuelle(Case CaseActuelle) {
+        this.CaseActuelle = CaseActuelle;
     }
 
     public int[][] getKnowledge() {
@@ -81,20 +81,20 @@ public class Hero {
         this.knowledge = knowledge;
     }
 
-    public Boolean[][] getVisited() {
-        return visited;
+    public Boolean[][] getvisite() {
+        return visite;
     }
 
-    public void setVisited(Boolean[][] visited) {
-        this.visited = visited;
+    public void setvisite(Boolean[][] visite) {
+        this.visite = visite;
     }
 
-    public int getLife() {
-        return life;
+    public int getvie() {
+        return vie;
     }
 
-    public void setLife(int life) {
-        this.life = life;
+    public void setvie(int vie) {
+        this.vie = vie;
     }
 
     public int getShootUsed() {
